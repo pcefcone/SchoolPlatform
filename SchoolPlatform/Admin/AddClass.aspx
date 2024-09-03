@@ -28,6 +28,14 @@
                     <asp:GridView ID="GridViewAddClass" runat="server" CssClass="table table-hover table-bordered" DataKeyNames="ClassId" AutoGenerateColumns="False" 
                         EmptyDataText="No Record to display!" OnPageIndexChanging="GridViewAddClass_PageIndexChanging" OnRowCancelingEdit="GridViewAddClass_RowCancelingEdit" 
                         OnRowEditing="GridViewAddClass_RowEditing" OnRowUpdating="GridViewAddClass_RowUpdating">
+                        <Columns>
+                            <asp:BoundField DataField="Sr.No" HeaderText="Sr.No" ReadOnly="True">
+                            <ItemStyle HorizontalAlign="Center" />
+                            </asp:BoundField>
+                            <asp:TemplateField HeaderText="Class">
+                                <ItemStyle HorizontalAlign="Center" />
+                            </asp:TemplateField>
+                        </Columns>
                     </asp:GridView>
                 </div>
             </div>
