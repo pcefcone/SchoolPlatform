@@ -27,7 +27,7 @@
                 <div class="col-md-6">
                     <asp:GridView ID="GridViewAddClass" runat="server" CssClass="table table-hover table-bordered" DataKeyNames="ClassId" AutoGenerateColumns="False" 
                         EmptyDataText="No Record to display!" OnPageIndexChanging="GridViewAddClass_PageIndexChanging" OnRowCancelingEdit="GridViewAddClass_RowCancelingEdit" 
-                        OnRowEditing="GridViewAddClass_RowEditing" OnRowUpdating="GridViewAddClass_RowUpdating" AllowPaging="true" PageSize="4">
+                        OnRowEditing="GridViewAddClass_RowEditing" OnRowUpdating="GridViewAddClass_RowUpdating" AllowPaging="True" PageSize="4">
                         <Columns>
                             <asp:BoundField DataField="Sr.No" HeaderText="Sr.No" ReadOnly="True">
                             <ItemStyle HorizontalAlign="Center" />

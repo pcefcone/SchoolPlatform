@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -74,7 +75,7 @@ namespace SchoolPlatform.Admin
             {
                 GridViewRow row = GridViewAddClass.Rows[e.RowIndex];
                 int cId = Convert.ToInt32(GridViewAddClass.DataKeys[e.RowIndex].Values[0]);
-                string ClassName = (row.FindControl("txtClassEdit") as TextBox).Text;
+                string ClassName = (row.FindControl("txtClassEdit") as TextBox).Text;            
                 commonFnx.Query("UPDATE Class SET ClassName = '" + ClassName + "' WHERE ClassId = '" + cId + "' ");
                 lblMsg.Text = "Class Updated Successffully!";
                 lblMsg.CssClass = "alert alert-success";
