@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -14,7 +15,7 @@ namespace SchoolPlatform.Admin
         CommonFnx commonFnx = new CommonFnx();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            GetClass();
         }
 
         private void GetClass()
@@ -53,21 +54,38 @@ namespace SchoolPlatform.Admin
 
         protected void GridViewAddClass_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            GridViewAddClass.PageIndex = e.NewPageIndex;
+            GetClass();
         }
 
         protected void GridViewAddClass_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
-
+            GridViewAddClass.EditIndex = -1;
+            GetClass();
         }
 
         protected void GridViewAddClass_RowEditing(object sender, GridViewEditEventArgs e)
         {
-
+            GridViewAddClass.EditIndex = e.NewEditIndex;
         }
 
         protected void GridViewAddClass_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            try
+            {
+                GridViewRow row = GridViewAddClass.Rows[e.RowIndex];
+                int cId = Convert.ToInt32(GridViewAddClass.DataKeys[e.RowIndex].Values[0]);
+                string ClassName = (row.FindControl("txtClassEdit") as TextBox).Text;            
+                commonFnx.Query("UPDATE Class SET ClassName = '" + ClassName + "' WHERE ClassId = '" + cId + "' ");
+                lblMsg.Text = "Class Updated Successffully!";
+                lblMsg.CssClass = "alert alert-success";
+                GridViewAddClass.EditIndex = -1;
+                GetClass();
+            }
+            catch (Exception ex)
+            {
+                Response.Write("<script>alert('" + ex.Message + "');</script>");
+            }
 
         }
     }
