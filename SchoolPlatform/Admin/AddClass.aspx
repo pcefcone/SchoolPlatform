@@ -22,6 +22,16 @@
                     <asp:Button ID="btnAdd" runat="server" CssClass="btn btn-primary btn-block" BackColor="#5558C9" Text="Add Class" OnClick="btnAdd_Click" />
                 </div>
             </div>
+
+            <div class="row mb-3 mr-lg-5 ml-lg-5">
+                <div class="col-md-6">
+                    <asp:GridView ID="GridViewAddClass" runat="server" CssClass="table table-hover table-bordered" DataKeyNames="ClassId" AutoGenerateColumns="False" 
+                        EmptyDataText="No Record to display!" OnPageIndexChanging="GridViewAddClass_PageIndexChanging" OnRowCancelingEdit="GridViewAddClass_RowCancelingEdit" 
+                        OnRowEditing="GridViewAddClass_RowEditing" OnRowUpdating="GridViewAddClass_RowUpdating">
+                    </asp:GridView>
+                </div>
+            </div>
+
         </div>
     </div>
 
